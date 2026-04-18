@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #0a0a0f;
+    color: #f0f0f8;
+    min-height: 100dvh;
+  }
+
+  ::selection {
+    background-color: rgba(255, 51, 51, 0.3);
+    color: #f0f0f8;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0a0f;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2a2a3e;
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3a3a5e;
+  }
+}
+
+@layer components {
+  .input-base {
+    @apply w-full bg-bg-elevated border border-border rounded-lg px-4 py-3 
+           text-text-primary placeholder:text-text-muted 
+           focus:outline-none focus:border-accent-red focus:ring-1 focus:ring-accent-red/30
+           transition-all duration-200 font-body text-sm;
+  }
+
+  .btn-primary {
+    @apply bg-accent-red hover:bg-accent-red-dim text-white font-display font-semibold 
+           px-6 py-3 rounded-lg transition-all duration-200 
+           focus:outline-none focus:ring-2 focus:ring-accent-red/40 focus:ring-offset-2 focus:ring-offset-bg
+           disabled:opacity-40 disabled:cursor-not-allowed
+           active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply bg-bg-elevated hover:bg-border border border-border text-text-primary font-display font-medium
+           px-6 py-3 rounded-lg transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-border focus:ring-offset-2 focus:ring-offset-bg
+           disabled:opacity-40 disabled:cursor-not-allowed
+           active:scale-[0.98];
+  }
+
+  .card {
+    @apply bg-bg-card border border-border rounded-xl p-6;
+  }
+
+  .label {
+    @apply block text-xs font-display font-semibold uppercase tracking-widest text-text-secondary mb-2;
+  }
+
+  .error-text {
+    @apply text-accent-red text-xs mt-1.5 font-body;
+  }
+
+  /* Emergency page specific */
+  .emergency-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-display font-bold uppercase tracking-wider;
+  }
+
+  .data-row {
+    @apply flex flex-col gap-1 py-4 border-b border-border last:border-0;
+  }
+
+  .data-label {
+    @apply text-[11px] font-mono uppercase tracking-[0.15em] text-text-muted;
+  }
+
+  .data-value {
+    @apply text-base font-body font-medium text-text-primary leading-snug;
+  }
+}
