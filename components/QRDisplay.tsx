@@ -72,7 +72,7 @@ export default function QRDisplay({ publicId, fullName }: Props) {
               value={publicUrl}
               size={300}
               level="H"
-              marginSize={1}
+              includeMargin={true}
             />
           </div>
 
@@ -81,7 +81,7 @@ export default function QRDisplay({ publicId, fullName }: Props) {
             value={publicUrl}
             size={200}
             level="H"
-            marginSize={1}
+            includeMargin={true}
           />
         </div>
 
@@ -121,7 +121,7 @@ export default function QRDisplay({ publicId, fullName }: Props) {
 
       {/* Hidden SVG for export */}
       <div id="qr-svg-export" className="hidden">
-        <QRCodeSVG value={publicUrl} size={400} level="H" marginSize={2} />
+        <QRCodeSVG value={publicUrl} size={400} level="H"/>
       </div>
 
       {/* Print card */}
