@@ -1,9 +1,10 @@
 'use client'
 
-import Link from 'next/link'
+import { useState } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
-import { Shield, LayoutDashboard, FileEdit, QrCode, LogOut } from 'lucide-react'
+import { Shield, LayoutDashboard, FileEdit, QrCode, LogOut, Loader2 } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
+import { useNavigation } from '@/lib/navigation-context'
 import { cn } from '@/lib/utils'
 import type { User } from '@supabase/supabase-js'
 
@@ -13,12 +14,15 @@ const navItems = [
   { href: '/dashboard/qr', label: 'Mi QR', icon: QrCode },
 ]
 
-export default function DashboardNav({ user }: { user: User }) {
+export default function DashboardNav({ user: _ }: { user: User }) {
   const pathname = usePathname()
   const router = useRouter()
   const supabase = createClient()
+  const { navigate } = useNavigation()
+  const [isLoggingOut, setIsLoggingOut] = useState(false)
 
   const handleLogout = async () => {
+    setIsLoggingOut(true)
     await supabase.auth.signOut()
     router.push('/login')
     router.refresh()
@@ -28,21 +32,22 @@ export default function DashboardNav({ user }: { user: User }) {
     <header className="border-b border-border bg-bg-card/80 backdrop-blur-sm sticky top-0 z-10">
       <div className="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/dashboard" className="flex items-center gap-2">
+        <button onClick={() => navigate('/dashboard')} className="flex items-center gap-2">
           <div className="w-7 h-7 bg-accent-red rounded-md flex items-center justify-center">
             <Shield className="w-3.5 h-3.5 text-white" />
           </div>
           <span className="font-display font-bold text-base text-text-primary">EmergiQR</span>
-        </Link>
+        </button>
 
         {/* Nav */}
         <nav className="flex items-center gap-1">
           {navItems.map((item) => {
             const active = pathname === item.href
             return (
-              <Link
+              <button
                 key={item.href}
-                href={item.href}
+                onClick={() => navigate(item.href)}
+                disabled={isLoggingOut}
                 className={cn(
                   'flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-display font-medium transition-all duration-150',
                   active
@@ -52,16 +57,20 @@ export default function DashboardNav({ user }: { user: User }) {
               >
                 <item.icon className="w-3.5 h-3.5" />
                 <span className="hidden sm:inline">{item.label}</span>
-              </Link>
+              </button>
             )
           })}
 
           <button
             onClick={handleLogout}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-display font-medium text-text-muted hover:text-accent-red hover:bg-accent-red/10 transition-all duration-150 ml-1"
+            disabled={isLoggingOut}
+            className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-display font-medium text-text-muted hover:text-accent-red hover:bg-accent-red/10 transition-all duration-150 ml-1 disabled:opacity-50"
           >
-            <LogOut className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">Salir</span>
+            {isLoggingOut
+              ? <Loader2 className="w-3.5 h-3.5 animate-spin" />
+              : <LogOut className="w-3.5 h-3.5" />
+            }
+            <span className="hidden sm:inline">{isLoggingOut ? 'Saliendo...' : 'Salir'}</span>
           </button>
         </nav>
       </div>
