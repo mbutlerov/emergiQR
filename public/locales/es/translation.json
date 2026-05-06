@@ -1,0 +1,207 @@
+{
+  "homepage": {
+    "tagline": "Sistema de emergencia",
+    "hero": {
+      "title": "Tu información médica,",
+      "titleHighlight": "al instante",
+      "subtitle": "Un QR en tu casco o billetera permite que cualquier persona acceda a tus datos médicos críticos en segundos. Sin apps. Sin registro."
+    },
+    "feature1": {
+      "title": "QR Único",
+      "desc": "Genera un código QR personal y descárgalo para imprimirlo en tu casco, moto o billetera."
+    },
+    "feature2": {
+      "title": "Página Instantánea",
+      "desc": "Al escanear, se abre una página optimizada para móvil con tus datos sin necesidad de app ni login."
+    },
+    "feature3": {
+      "title": "Datos Críticos",
+      "desc": "Tipo de sangre, alergias, medicación y contacto de emergencia visibles al instante."
+    },
+    "footer": "© 2024 EmergiQR. Todos los derechos reservados."
+  },
+  "dashboard": {
+    "welcome": {
+      "greeting": "Hola, {{name}}",
+      "default": "Bienvenido a EmergiQR"
+    },
+    "alert": {
+      "title": "Tu perfil está incompleto",
+      "message": "Completá tus datos médicos para generar tu QR de emergencia."
+    },
+    "status": {
+      "title": "Perfil activo",
+      "subtitle": "Tu QR está listo para usar",
+      "bloodType": "Tipo de sangre",
+      "contact": "Contacto"
+    }
+  },
+  "profile": {
+    "title": "Perfil médico",
+    "description": "Esta información se mostrará cuando alguien escanee tu QR de emergencia.",
+    "section": {
+      "personal": "Datos personales",
+      "medical": "Información médica",
+      "emergency": "Contacto de emergencia",
+      "additional": "Información adicional"
+    },
+    "field": {
+      "fullName": "Nombre completo *",
+      "birthDate": "Fecha de nacimiento",
+      "bloodType": "Tipo de sangre",
+      "allergies": "Alergias",
+      "conditions": "Enfermedades / condiciones médicas",
+      "medications": "Medicación actual",
+      "contactName": "Nombre del contacto",
+      "contactPhone": "Teléfono",
+      "whatsappPreference": "Preferir WhatsApp en lugar de llamada directa",
+      "insurance": "Seguro médico",
+      "notes": "Observaciones adicionales"
+    },
+    "placeholder": {
+      "fullName": "Ej: Juan Carlos Pérez",
+      "allergies": "Ej: Penicilina, látex, mariscos...",
+      "conditions": "Ej: Diabetes tipo 2, hipertensión...",
+      "medications": "Ej: Metformina 500mg/día, Enalapril 10mg...",
+      "contactName": "Ej: María Pérez (madre)",
+      "contactPhone": "+54 9 11 1234-5678",
+      "insurance": "Ej: OSDE Plan 210, Nº 123456",
+      "notes": "Cualquier información relevante para primeros auxilios..."
+    },
+    "hint": {
+      "allergies": "Separadas por coma. Dejar vacío si no tenés."
+    },
+    "bloodType": {
+      "unknown": "No sé / N/A"
+    },
+    "button": {
+      "submit": "Guardar cambios",
+      "saving": "Guardando..."
+    },
+    "status": {
+      "saved": "✓ Guardado correctamente",
+      "error": "Error al guardar. Intentá de nuevo."
+    },
+    "validation": {
+      "nameRequired": "El nombre es obligatorio"
+    }
+  },
+  "qr": {
+    "title": "Mi QR de emergencia",
+    "subtitle": "Descargá e imprimí este código. No requiere internet para mostrarse una vez escaneado.",
+    "empty": {
+      "title": "Primero completá tu perfil",
+      "message": "Necesitás cargar tus datos médicos para generar el QR.",
+      "button": "Ir al perfil"
+    }
+  },
+  "login": {
+    "heading": "Bienvenido de vuelta",
+    "subheading": "Ingresa a tu cuenta para gestionar tu perfil",
+    "label": {
+      "email": "Email",
+      "password": "Contraseña"
+    },
+    "placeholder": {
+      "email": "tu@email.com",
+      "password": "••••••••"
+    },
+    "validation": {
+      "invalidEmail": "Email inválido",
+      "passwordMin": "Mínimo 6 caracteres"
+    },
+    "error": {
+      "credentials": "Email o contraseña incorrectos.",
+      "otpExpired": "El link de confirmación expiró. Podés iniciar sesión igual si ya confirmaste antes, o registrate de nuevo.",
+      "accessDenied": "Acceso denegado. El link puede haber expirado o ya fue usado.",
+      "default": "Ocurrió un error. Intentá de nuevo."
+    },
+    "button": {
+      "submit": "Ingresar",
+      "submitting": "Ingresando..."
+    },
+    "signup": {
+      "prompt": "¿No tenés cuenta?",
+      "link": "Registrarse gratis"
+    }
+  },
+  "register": {
+    "heading": "Crear cuenta",
+    "subheading": "Gratis para siempre en el plan básico",
+    "label": {
+      "email": "Email",
+      "password": "Contraseña",
+      "confirmPassword": "Confirmar contraseña"
+    },
+    "placeholder": {
+      "email": "tu@email.com",
+      "password": "Mínimo 8 caracteres",
+      "confirmPassword": "Repetí tu contraseña"
+    },
+    "validation": {
+      "invalidEmail": "Email inválido",
+      "passwordMin": "Mínimo 8 caracteres",
+      "passwordMismatch": "Las contraseñas no coinciden"
+    },
+    "button": {
+      "submit": "Crear cuenta gratis",
+      "submitting": "Creando cuenta..."
+    },
+    "success": {
+      "title": "¡Cuenta creada!",
+      "message": "Revisá tu email para confirmar tu cuenta y luego podrás ingresar.",
+      "button": "Ir al login"
+    },
+    "login": {
+      "prompt": "¿Ya tenés cuenta?",
+      "link": "Ingresar"
+    }
+  },
+  "emergency": {
+    "header": {
+      "label": "EmergiQR — Emergencia médica"
+    },
+    "bloodType": "Grupo sanguíneo",
+    "allergies": "Alergias",
+    "conditions": "Condiciones médicas",
+    "medications": "Medicación actual",
+    "insurance": "Seguro médico",
+    "notes": "Observaciones",
+    "contact": {
+      "label": "Contacto de emergencia",
+      "callButton": "Llamar ahora — {{phone}}",
+      "whatsappButton": "WhatsApp — {{phone}}",
+      "callAlternative": "También llamar — {{phone}}"
+    },
+    "footer": "EmergiQR — Sistema QR de Emergencia"
+  },
+  "nav": {
+    "home": "Inicio",
+    "profile": "Perfil",
+    "myQr": "Mi QR",
+    "logout": "Salir",
+    "logoutLoading": "Saliendo..."
+  },
+  "actions": {
+    "profile": {
+      "edit": "Editar perfil médico",
+      "complete": "Completar perfil médico",
+      "description": "Datos personales, alergias, medicación y contacto"
+    },
+    "qr": {
+      "title": "Mi QR de emergencia",
+      "descriptionReady": "Ver, descargar e imprimir tu código QR",
+      "descriptionIncomplete": "Primero completá tu perfil"
+    }
+  },
+  "landing": {
+    "header": {
+      "login": "Ingresar",
+      "signup": "Comenzar gratis"
+    },
+    "cta": {
+      "primary": "Crear mi QR gratis",
+      "secondary": "Ver ejemplo"
+    }
+  }
+}
