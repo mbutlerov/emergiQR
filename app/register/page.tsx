@@ -2,11 +2,12 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { Shield, Eye, EyeOff, Loader2 } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { createClient } from '@/lib/supabase/client'
 
 const schema = z.object({
@@ -21,8 +22,8 @@ const schema = z.object({
 type FormValues = z.infer<typeof schema>
 
 export default function RegisterPage() {
-  const router = useRouter()
   const supabase = createClient()
+  const { t } = useTranslation()
   const [showPass, setShowPass] = useState(false)
   const [serverError, setServerError] = useState('')
   const [success, setSuccess] = useState(false)
@@ -56,12 +57,14 @@ export default function RegisterPage() {
           <div className="w-16 h-16 bg-accent-green/10 rounded-full flex items-center justify-center mx-auto mb-6">
             <Shield className="w-8 h-8 text-accent-green" />
           </div>
-          <h2 className="font-display font-bold text-2xl text-text-primary mb-3">¡Cuenta creada!</h2>
+          <h2 className="font-display font-bold text-2xl text-text-primary mb-3">
+            {t('register.success.title')}
+          </h2>
           <p className="text-text-secondary font-body mb-6">
-            Revisá tu email para confirmar tu cuenta y luego podrás ingresar.
+            {t('register.success.message')}
           </p>
           <Link href="/login" className="btn-primary inline-flex">
-            Ir al login
+            {t('register.success.button')}
           </Link>
         </div>
       </main>
@@ -80,8 +83,8 @@ export default function RegisterPage() {
             </div>
             <span className="font-display font-bold text-xl text-text-primary">EmergiQR</span>
           </Link>
-          <h1 className="font-display font-bold text-2xl text-text-primary">Crear cuenta</h1>
-          <p className="text-text-secondary text-sm font-body mt-1">Gratis para siempre en el plan básico</p>
+          <h1 className="font-display font-bold text-2xl text-text-primary">{t('register.heading')}</h1>
+          <p className="text-text-secondary text-sm font-body mt-1">{t('register.subheading')}</p>
         </div>
 
         <div className="card">
@@ -93,25 +96,25 @@ export default function RegisterPage() {
             )}
 
             <div>
-              <label className="label">Email</label>
+              <label className="label">{t('register.label.email')}</label>
               <input
                 {...register('email')}
                 type="email"
                 className="input-base"
-                placeholder="tu@email.com"
+                placeholder={t('register.placeholder.email')}
                 autoComplete="email"
               />
               {errors.email && <p className="error-text">{errors.email.message}</p>}
             </div>
 
             <div>
-              <label className="label">Contraseña</label>
+              <label className="label">{t('register.label.password')}</label>
               <div className="relative">
                 <input
                   {...register('password')}
                   type={showPass ? 'text' : 'password'}
                   className="input-base pr-12"
-                  placeholder="Mínimo 8 caracteres"
+                  placeholder={t('register.placeholder.password')}
                   autoComplete="new-password"
                 />
                 <button
@@ -126,12 +129,12 @@ export default function RegisterPage() {
             </div>
 
             <div>
-              <label className="label">Confirmar contraseña</label>
+              <label className="label">{t('register.label.confirmPassword')}</label>
               <input
                 {...register('confirmPassword')}
                 type={showPass ? 'text' : 'password'}
                 className="input-base"
-                placeholder="Repetí tu contraseña"
+                placeholder={t('register.placeholder.confirmPassword')}
                 autoComplete="new-password"
               />
               {errors.confirmPassword && (
@@ -145,18 +148,18 @@ export default function RegisterPage() {
               className="btn-primary w-full flex items-center justify-center gap-2"
             >
               {isSubmitting ? (
-                <><Loader2 className="w-4 h-4 animate-spin" /> Creando cuenta...</>
+                <><Loader2 className="w-4 h-4 animate-spin" /> {t('register.button.submitting')}</>
               ) : (
-                'Crear cuenta gratis'
+                t('register.button.submit')
               )}
             </button>
           </form>
         </div>
 
         <p className="text-center text-text-secondary text-sm font-body mt-6">
-          ¿Ya tenés cuenta?{' '}
+          {t('register.login.prompt')}{' '}
           <Link href="/login" className="text-accent-red hover:text-accent-red-dim transition-colors font-medium">
-            Ingresar
+            {t('register.login.link')}
           </Link>
         </p>
       </div>

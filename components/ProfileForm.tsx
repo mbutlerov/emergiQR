@@ -1,9 +1,11 @@
 'use client'
 
+import React from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { Loader2, Save } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { cn, BLOOD_TYPES } from '@/lib/utils'
 import type { MedicalProfile, ProfileFormValues } from '@/types'
 
@@ -27,11 +29,11 @@ interface Props {
 }
 
 export default function ProfileForm({ profile, onSave }: Props) {
+  const { t } = useTranslation()
   const {
     register,
     handleSubmit,
-    watch,
-    formState: { errors, isSubmitting, isDirty },
+    formState: { errors, isSubmitting },
   } = useForm<ProfileFormValues>({
     resolver: zodResolver(schema),
     defaultValues: {
@@ -67,22 +69,22 @@ export default function ProfileForm({ profile, onSave }: Props) {
       {/* Section: Personal */}
       <section className="card space-y-5">
         <h2 className="font-display font-semibold text-text-primary flex items-center gap-2 text-sm uppercase tracking-widest text-text-secondary">
-          Datos personales
+          {t('profile.section.personal')}
         </h2>
 
         <div>
-          <label className="label">Nombre completo *</label>
+          <label className="label">{t('profile.field.fullName')}</label>
           <input
             {...register('full_name')}
             className="input-base"
-            placeholder="Ej: Juan Carlos Pérez"
+            placeholder={t('profile.placeholder.fullName')}
           />
           {errors.full_name && <p className="error-text">{errors.full_name.message}</p>}
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="label">Fecha de nacimiento</label>
+            <label className="label">{t('profile.field.birthDate')}</label>
             <input
               {...register('birth_date')}
               type="date"
@@ -91,13 +93,11 @@ export default function ProfileForm({ profile, onSave }: Props) {
           </div>
 
           <div>
-            <label className="label">Tipo de sangre</label>
+            <label className="label">{t('profile.field.bloodType')}</label>
             <select {...register('blood_type')} className="input-base">
-              <option value="">No sé / N/A</option>
+              <option value="">{t('profile.bloodType.unknown')}</option>
               {BLOOD_TYPES.map((bt) => (
-                <option key={bt} value={bt}>
-                  {bt === 'unknown' ? 'Desconocido' : bt}
-                </option>
+                <option key={bt} value={bt}>{bt}</option>
               ))}
             </select>
           </div>
@@ -107,34 +107,34 @@ export default function ProfileForm({ profile, onSave }: Props) {
       {/* Section: Medical */}
       <section className="card space-y-5">
         <h2 className="font-display font-semibold text-sm uppercase tracking-widest text-text-secondary">
-          Información médica
+          {t('profile.section.medical')}
         </h2>
 
         <div>
-          <label className="label">Alergias</label>
+          <label className="label">{t('profile.field.allergies')}</label>
           <textarea
             {...register('allergies')}
             className="input-base min-h-[80px] resize-y"
-            placeholder="Ej: Penicilina, látex, mariscos..."
+            placeholder={t('profile.placeholder.allergies')}
           />
-          <p className="text-text-muted text-xs font-body mt-1">Separadas por coma. Dejar vacío si no tenés.</p>
+          <p className="text-text-muted text-xs font-body mt-1">{t('profile.hint.allergies')}</p>
         </div>
 
         <div>
-          <label className="label">Enfermedades / condiciones médicas</label>
+          <label className="label">{t('profile.field.conditions')}</label>
           <textarea
             {...register('medical_conditions')}
             className="input-base min-h-[80px] resize-y"
-            placeholder="Ej: Diabetes tipo 2, hipertensión..."
+            placeholder={t('profile.placeholder.conditions')}
           />
         </div>
 
         <div>
-          <label className="label">Medicación actual</label>
+          <label className="label">{t('profile.field.medications')}</label>
           <textarea
             {...register('current_medications')}
             className="input-base min-h-[80px] resize-y"
-            placeholder="Ej: Metformina 500mg/día, Enalapril 10mg..."
+            placeholder={t('profile.placeholder.medications')}
           />
         </div>
       </section>
@@ -142,25 +142,25 @@ export default function ProfileForm({ profile, onSave }: Props) {
       {/* Section: Emergency contact */}
       <section className="card space-y-5">
         <h2 className="font-display font-semibold text-sm uppercase tracking-widest text-text-secondary">
-          Contacto de emergencia
+          {t('profile.section.emergency')}
         </h2>
 
         <div>
-          <label className="label">Nombre del contacto</label>
+          <label className="label">{t('profile.field.contactName')}</label>
           <input
             {...register('emergency_contact_name')}
             className="input-base"
-            placeholder="Ej: María Pérez (madre)"
+            placeholder={t('profile.placeholder.contactName')}
           />
         </div>
 
         <div>
-          <label className="label">Teléfono</label>
+          <label className="label">{t('profile.field.contactPhone')}</label>
           <input
             {...register('emergency_contact_phone')}
             type="tel"
             className="input-base"
-            placeholder="+54 9 11 1234-5678"
+            placeholder={t('profile.placeholder.contactPhone')}
           />
         </div>
 
@@ -171,7 +171,7 @@ export default function ProfileForm({ profile, onSave }: Props) {
             className="w-4 h-4 rounded border-border bg-bg-elevated accent-accent-red cursor-pointer"
           />
           <span className="text-sm font-body text-text-secondary group-hover:text-text-primary transition-colors">
-            Preferir WhatsApp en lugar de llamada directa
+            {t('profile.field.whatsappPreference')}
           </span>
         </label>
       </section>
@@ -179,24 +179,24 @@ export default function ProfileForm({ profile, onSave }: Props) {
       {/* Section: Extra */}
       <section className="card space-y-5">
         <h2 className="font-display font-semibold text-sm uppercase tracking-widest text-text-secondary">
-          Información adicional
+          {t('profile.section.additional')}
         </h2>
 
         <div>
-          <label className="label">Seguro médico</label>
+          <label className="label">{t('profile.field.insurance')}</label>
           <input
             {...register('insurance_info')}
             className="input-base"
-            placeholder="Ej: OSDE Plan 210, Nº 123456"
+            placeholder={t('profile.placeholder.insurance')}
           />
         </div>
 
         <div>
-          <label className="label">Observaciones adicionales</label>
+          <label className="label">{t('profile.field.notes')}</label>
           <textarea
             {...register('additional_notes')}
             className="input-base min-h-[80px] resize-y"
-            placeholder="Cualquier información relevante para primeros auxilios..."
+            placeholder={t('profile.placeholder.notes')}
           />
         </div>
       </section>
@@ -209,26 +209,23 @@ export default function ProfileForm({ profile, onSave }: Props) {
           className="btn-primary flex items-center gap-2"
         >
           {isSubmitting ? (
-            <><Loader2 className="w-4 h-4 animate-spin" /> Guardando...</>
+            <><Loader2 className="w-4 h-4 animate-spin" /> {t('profile.button.saving')}</>
           ) : (
-            <><Save className="w-4 h-4" /> Guardar cambios</>
+            <><Save className="w-4 h-4" /> {t('profile.button.submit')}</>
           )}
         </button>
 
         {saveStatus === 'success' && (
           <span className="text-accent-green text-sm font-body animate-fade-in">
-            ✓ Guardado correctamente
+            {t('profile.status.saved')}
           </span>
         )}
         {saveStatus === 'error' && (
           <span className="text-accent-red text-sm font-body animate-fade-in">
-            Error al guardar. Intentá de nuevo.
+            {t('profile.status.error')}
           </span>
         )}
       </div>
     </form>
   )
 }
-
-// Need React import for useState
-import React from 'react'

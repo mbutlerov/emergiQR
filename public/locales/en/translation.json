@@ -1,0 +1,207 @@
+{
+  "homepage": {
+    "tagline": "Emergency system",
+    "hero": {
+      "title": "Your medical information,",
+      "titleHighlight": "instantly",
+      "subtitle": "A QR on your helmet or wallet lets anyone access your critical medical data in seconds. No apps. No registration."
+    },
+    "feature1": {
+      "title": "Unique QR",
+      "desc": "Generate a personal QR code and download it to print on your helmet, bike or wallet."
+    },
+    "feature2": {
+      "title": "Instant Page",
+      "desc": "When scanned, a mobile-optimized page opens with your data — no app or login required."
+    },
+    "feature3": {
+      "title": "Critical Data",
+      "desc": "Blood type, allergies, medication and emergency contact visible instantly."
+    },
+    "footer": "© 2024 EmergiQR. All rights reserved."
+  },
+  "dashboard": {
+    "welcome": {
+      "greeting": "Hello, {{name}}",
+      "default": "Welcome to EmergiQR"
+    },
+    "alert": {
+      "title": "Your profile is incomplete",
+      "message": "Fill in your medical data to generate your emergency QR."
+    },
+    "status": {
+      "title": "Active profile",
+      "subtitle": "Your QR is ready to use",
+      "bloodType": "Blood type",
+      "contact": "Contact"
+    }
+  },
+  "profile": {
+    "title": "Medical profile",
+    "description": "This information will be shown when someone scans your emergency QR.",
+    "section": {
+      "personal": "Personal data",
+      "medical": "Medical information",
+      "emergency": "Emergency contact",
+      "additional": "Additional information"
+    },
+    "field": {
+      "fullName": "Full name *",
+      "birthDate": "Date of birth",
+      "bloodType": "Blood type",
+      "allergies": "Allergies",
+      "conditions": "Medical conditions / diseases",
+      "medications": "Current medication",
+      "contactName": "Contact name",
+      "contactPhone": "Phone",
+      "whatsappPreference": "Prefer WhatsApp instead of direct call",
+      "insurance": "Medical insurance",
+      "notes": "Additional notes"
+    },
+    "placeholder": {
+      "fullName": "E.g.: John Smith",
+      "allergies": "E.g.: Penicillin, latex, shellfish...",
+      "conditions": "E.g.: Type 2 diabetes, hypertension...",
+      "medications": "E.g.: Metformin 500mg/day, Enalapril 10mg...",
+      "contactName": "E.g.: Mary Smith (mother)",
+      "contactPhone": "+1 555 123 4567",
+      "insurance": "E.g.: Blue Cross Plan, No. 123456",
+      "notes": "Any information relevant for first aid..."
+    },
+    "hint": {
+      "allergies": "Separated by comma. Leave empty if none."
+    },
+    "bloodType": {
+      "unknown": "Unknown / N/A"
+    },
+    "button": {
+      "submit": "Save changes",
+      "saving": "Saving..."
+    },
+    "status": {
+      "saved": "✓ Saved successfully",
+      "error": "Error saving. Please try again."
+    },
+    "validation": {
+      "nameRequired": "Name is required"
+    }
+  },
+  "qr": {
+    "title": "My emergency QR",
+    "subtitle": "Download and print this code. It does not require internet once scanned.",
+    "empty": {
+      "title": "Complete your profile first",
+      "message": "You need to fill in your medical data to generate the QR.",
+      "button": "Go to profile"
+    }
+  },
+  "login": {
+    "heading": "Welcome back",
+    "subheading": "Sign in to your account to manage your profile",
+    "label": {
+      "email": "Email",
+      "password": "Password"
+    },
+    "placeholder": {
+      "email": "you@email.com",
+      "password": "••••••••"
+    },
+    "validation": {
+      "invalidEmail": "Invalid email",
+      "passwordMin": "Minimum 6 characters"
+    },
+    "error": {
+      "credentials": "Incorrect email or password.",
+      "otpExpired": "The confirmation link has expired. You can still sign in if you already confirmed, or register again.",
+      "accessDenied": "Access denied. The link may have expired or already been used.",
+      "default": "An error occurred. Please try again."
+    },
+    "button": {
+      "submit": "Sign in",
+      "submitting": "Signing in..."
+    },
+    "signup": {
+      "prompt": "Don't have an account?",
+      "link": "Register for free"
+    }
+  },
+  "register": {
+    "heading": "Create account",
+    "subheading": "Free forever on the basic plan",
+    "label": {
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm password"
+    },
+    "placeholder": {
+      "email": "you@email.com",
+      "password": "Minimum 8 characters",
+      "confirmPassword": "Repeat your password"
+    },
+    "validation": {
+      "invalidEmail": "Invalid email",
+      "passwordMin": "Minimum 8 characters",
+      "passwordMismatch": "Passwords do not match"
+    },
+    "button": {
+      "submit": "Create free account",
+      "submitting": "Creating account..."
+    },
+    "success": {
+      "title": "Account created!",
+      "message": "Check your email to confirm your account and then you can sign in.",
+      "button": "Go to login"
+    },
+    "login": {
+      "prompt": "Already have an account?",
+      "link": "Sign in"
+    }
+  },
+  "emergency": {
+    "header": {
+      "label": "EmergiQR — Medical emergency"
+    },
+    "bloodType": "Blood type",
+    "allergies": "Allergies",
+    "conditions": "Medical conditions",
+    "medications": "Current medication",
+    "insurance": "Medical insurance",
+    "notes": "Notes",
+    "contact": {
+      "label": "Emergency contact",
+      "callButton": "Call now — {{phone}}",
+      "whatsappButton": "WhatsApp — {{phone}}",
+      "callAlternative": "Also call — {{phone}}"
+    },
+    "footer": "EmergiQR — QR Emergency System"
+  },
+  "nav": {
+    "home": "Home",
+    "profile": "Profile",
+    "myQr": "My QR",
+    "logout": "Sign out",
+    "logoutLoading": "Signing out..."
+  },
+  "actions": {
+    "profile": {
+      "edit": "Edit medical profile",
+      "complete": "Complete medical profile",
+      "description": "Personal data, allergies, medication and contact"
+    },
+    "qr": {
+      "title": "My emergency QR",
+      "descriptionReady": "View, download and print your QR code",
+      "descriptionIncomplete": "Complete your profile first"
+    }
+  },
+  "landing": {
+    "header": {
+      "login": "Sign in",
+      "signup": "Get started free"
+    },
+    "cta": {
+      "primary": "Create my free QR",
+      "secondary": "See example"
+    }
+  }
+}

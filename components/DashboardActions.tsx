@@ -1,10 +1,12 @@
 'use client'
 
 import { FileEdit, QrCode } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { useNavigation } from '@/lib/navigation-context'
 
 export default function DashboardActions({ hasProfile }: { hasProfile: boolean }) {
   const { navigate, isNavigating } = useNavigation()
+  const { t } = useTranslation()
 
   return (
     <div className="grid grid-cols-1 gap-3">
@@ -18,10 +20,10 @@ export default function DashboardActions({ hasProfile }: { hasProfile: boolean }
         </div>
         <div>
           <p className="font-display font-semibold text-text-primary text-sm">
-            {hasProfile ? 'Editar perfil médico' : 'Completar perfil médico'}
+            {hasProfile ? t('actions.profile.edit') : t('actions.profile.complete')}
           </p>
           <p className="text-text-secondary text-xs font-body">
-            Datos personales, alergias, medicación y contacto
+            {t('actions.profile.description')}
           </p>
         </div>
       </button>
@@ -39,9 +41,11 @@ export default function DashboardActions({ hasProfile }: { hasProfile: boolean }
           <QrCode className="w-5 h-5 text-text-secondary group-hover:text-accent-red transition-colors" />
         </div>
         <div>
-          <p className="font-display font-semibold text-text-primary text-sm">Mi QR de emergencia</p>
+          <p className="font-display font-semibold text-text-primary text-sm">
+            {t('actions.qr.title')}
+          </p>
           <p className="text-text-secondary text-xs font-body">
-            {hasProfile ? 'Ver, descargar e imprimir tu código QR' : 'Primero completá tu perfil'}
+            {hasProfile ? t('actions.qr.descriptionReady') : t('actions.qr.descriptionIncomplete')}
           </p>
         </div>
       </button>
