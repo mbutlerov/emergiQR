@@ -3,6 +3,7 @@ import { Syne, DM_Sans, DM_Mono } from 'next/font/google'
 import './globals.css'
 import { NavigationProvider } from '@/lib/navigation-context'
 import LoadingOverlay from '@/components/LoadingOverlay'
+import I18nProvider from '@/components/I18nProvider'
 
 const syne = Syne({
   subsets: ['latin'],
@@ -42,10 +43,12 @@ export default function RootLayout({
       <body
         className={`${syne.variable} ${dmSans.variable} ${dmMono.variable} font-body bg-bg text-text-primary antialiased`}
       >
-        <NavigationProvider>
-          <LoadingOverlay />
-          {children}
-        </NavigationProvider>
+        <I18nProvider>
+          <NavigationProvider>
+            <LoadingOverlay />
+            {children}
+          </NavigationProvider>
+        </I18nProvider>
       </body>
     </html>
   )

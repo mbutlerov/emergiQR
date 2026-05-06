@@ -1,6 +1,5 @@
 import { createClient } from '@/lib/supabase/server'
-import { Shield, AlertTriangle } from 'lucide-react'
-import DashboardActions from '@/components/DashboardActions'
+import DashboardContent from '@/components/DashboardContent'
 
 export default async function DashboardPage() {
   const supabase = createClient()
@@ -12,64 +11,11 @@ export default async function DashboardPage() {
     .eq('user_id', user!.id)
     .single()
 
-  const hasProfile = !!profile
-
   return (
-    <div className="space-y-6 animate-slide-up">
-      {/* Welcome */}
-      <div>
-        <h1 className="font-display font-bold text-2xl text-text-primary">
-          {hasProfile ? `Hola, ${profile.full_name?.split(' ')[0]}` : 'Bienvenido a EmergiQR'}
-        </h1>
-        <p className="text-text-secondary text-sm font-body mt-1">
-          {user?.email}
-        </p>
-      </div>
-
-      {/* Alert if no profile */}
-      {!hasProfile && (
-        <div className="bg-accent-amber/10 border border-accent-amber/30 rounded-xl p-4 flex items-start gap-3">
-          <AlertTriangle className="w-5 h-5 text-accent-amber shrink-0 mt-0.5" />
-          <div>
-            <p className="text-text-primary text-sm font-display font-semibold">Tu perfil está incompleto</p>
-            <p className="text-text-secondary text-xs font-body mt-1">
-              Completá tus datos médicos para generar tu QR de emergencia.
-            </p>
-          </div>
-        </div>
-      )}
-
-      {/* Status card */}
-      {hasProfile && (
-        <div className="card border-accent-green/30 bg-accent-green/5">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-8 bg-accent-green/20 rounded-full flex items-center justify-center">
-              <Shield className="w-4 h-4 text-accent-green" />
-            </div>
-            <div>
-              <p className="font-display font-semibold text-text-primary text-sm">Perfil activo</p>
-              <p className="text-text-secondary text-xs font-body">Tu QR está listo para usar</p>
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-3 text-xs">
-            <div>
-              <p className="text-text-muted font-mono uppercase tracking-wider mb-0.5">Tipo de sangre</p>
-              <p className="text-text-primary font-display font-semibold text-base">
-                {profile.blood_type || '—'}
-              </p>
-            </div>
-            <div>
-              <p className="text-text-muted font-mono uppercase tracking-wider mb-0.5">Contacto</p>
-              <p className="text-text-primary font-body text-sm truncate">
-                {profile.emergency_contact_phone || '—'}
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Actions */}
-      <DashboardActions hasProfile={hasProfile} />
-    </div>
+    <DashboardContent
+      hasProfile={!!profile}
+      profile={profile}
+      userEmail={user?.email}
+    />
   )
 }
