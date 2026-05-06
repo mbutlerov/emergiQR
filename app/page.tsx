@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import { Shield, QrCode, Smartphone, ChevronRight, Heart, Zap } from 'lucide-react'
+import { Shield, QrCode, Smartphone, Heart, Zap } from 'lucide-react'
+import { LandingHeaderLinks, LandingCTAButtons } from '@/components/LandingNav'
 
 export default function HomePage() {
   return (
@@ -12,14 +12,7 @@ export default function HomePage() {
           </div>
           <span className="font-display font-bold text-lg text-text-primary">EmergiQR</span>
         </div>
-        <div className="flex items-center gap-3">
-          <Link href="/login" className="text-sm text-text-secondary hover:text-text-primary transition-colors font-body">
-            Ingresar
-          </Link>
-          <Link href="/register" className="btn-primary text-sm py-2 px-4 hidden sm:inline-flex">
-            Comenzar gratis
-          </Link>
-        </div>
+        <LandingHeaderLinks />
       </header>
 
       {/* Hero */}
@@ -44,15 +37,7 @@ export default function HomePage() {
             Un QR en tu casco o billetera permite que cualquier persona acceda a tus datos médicos críticos en segundos. Sin apps. Sin registro.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link href="/register" className="btn-primary flex items-center justify-center gap-2 text-base">
-              Crear mi QR gratis
-              <ChevronRight className="w-4 h-4" />
-            </Link>
-            <Link href="/e/demo" className="btn-secondary flex items-center justify-center gap-2 text-base">
-              Ver ejemplo
-            </Link>
-          </div>
+          <LandingCTAButtons />
         </div>
       </section>
 

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Syne, DM_Sans, DM_Mono } from 'next/font/google'
 import './globals.css'
+import { NavigationProvider } from '@/lib/navigation-context'
+import LoadingOverlay from '@/components/LoadingOverlay'
 
 const syne = Syne({
   subsets: ['latin'],
@@ -40,7 +42,10 @@ export default function RootLayout({
       <body
         className={`${syne.variable} ${dmSans.variable} ${dmMono.variable} font-body bg-bg text-text-primary antialiased`}
       >
-        {children}
+        <NavigationProvider>
+          <LoadingOverlay />
+          {children}
+        </NavigationProvider>
       </body>
     </html>
   )
