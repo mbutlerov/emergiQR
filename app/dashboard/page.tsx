@@ -1,6 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
-import Link from 'next/link'
-import { FileEdit, QrCode, Shield, AlertTriangle } from 'lucide-react'
+import { Shield, AlertTriangle } from 'lucide-react'
+import DashboardActions from '@/components/DashboardActions'
 
 export default async function DashboardPage() {
   const supabase = createClient()
@@ -69,40 +69,7 @@ export default async function DashboardPage() {
       )}
 
       {/* Actions */}
-      <div className="grid grid-cols-1 gap-3">
-        <Link href="/dashboard/profile" className="card hover:border-border-accent transition-all duration-200 flex items-center gap-4 group">
-          <div className="w-10 h-10 bg-bg-elevated rounded-lg flex items-center justify-center group-hover:bg-accent-red/10 transition-colors">
-            <FileEdit className="w-5 h-5 text-text-secondary group-hover:text-accent-red transition-colors" />
-          </div>
-          <div>
-            <p className="font-display font-semibold text-text-primary text-sm">
-              {hasProfile ? 'Editar perfil médico' : 'Completar perfil médico'}
-            </p>
-            <p className="text-text-secondary text-xs font-body">
-              Datos personales, alergias, medicación y contacto
-            </p>
-          </div>
-        </Link>
-
-        <Link
-          href="/dashboard/qr"
-          className={`card flex items-center gap-4 group transition-all duration-200 ${
-            hasProfile
-              ? 'hover:border-border-accent cursor-pointer'
-              : 'opacity-50 pointer-events-none'
-          }`}
-        >
-          <div className="w-10 h-10 bg-bg-elevated rounded-lg flex items-center justify-center group-hover:bg-accent-red/10 transition-colors">
-            <QrCode className="w-5 h-5 text-text-secondary group-hover:text-accent-red transition-colors" />
-          </div>
-          <div>
-            <p className="font-display font-semibold text-text-primary text-sm">Mi QR de emergencia</p>
-            <p className="text-text-secondary text-xs font-body">
-              {hasProfile ? 'Ver, descargar e imprimir tu código QR' : 'Primero completá tu perfil'}
-            </p>
-          </div>
-        </Link>
-      </div>
+      <DashboardActions hasProfile={hasProfile} />
     </div>
   )
 }
