@@ -123,6 +123,62 @@
     "signup": {
       "prompt": "¿No tenés cuenta?",
       "link": "Registrarse gratis"
+    },
+    "forgotPassword": "¿Olvidaste tu contraseña?"
+  },
+  "forgotPassword": {
+    "heading": "Recuperar contraseña",
+    "subheading": "Te enviamos un link para que puedas crear una nueva",
+    "label": {
+      "email": "Email"
+    },
+    "placeholder": {
+      "email": "tu@email.com"
+    },
+    "validation": {
+      "invalidEmail": "Email inválido"
+    },
+    "button": {
+      "submit": "Enviar link de recuperación",
+      "submitting": "Enviando..."
+    },
+    "success": {
+      "title": "¡Revisá tu email!",
+      "message": "Si ese email está registrado, vas a recibir un link para restablecer tu contraseña. Puede tardar unos minutos.",
+      "button": "Volver al login"
+    },
+    "error": {
+      "default": "Ocurrió un error. Intentá de nuevo."
+    },
+    "backToLogin": "← Volver al login"
+  },
+  "resetPassword": {
+    "heading": "Nueva contraseña",
+    "subheading": "Elegí una contraseña segura para tu cuenta",
+    "label": {
+      "password": "Nueva contraseña",
+      "confirmPassword": "Confirmar contraseña"
+    },
+    "placeholder": {
+      "password": "Mínimo 8 caracteres",
+      "confirmPassword": "Repetí tu contraseña"
+    },
+    "validation": {
+      "passwordMin": "Mínimo 8 caracteres",
+      "passwordMismatch": "Las contraseñas no coinciden"
+    },
+    "button": {
+      "submit": "Guardar nueva contraseña",
+      "submitting": "Guardando..."
+    },
+    "success": {
+      "title": "¡Contraseña actualizada!",
+      "message": "Tu contraseña fue cambiada. Te redirigimos al inicio...",
+      "button": "Ir al dashboard"
+    },
+    "error": {
+      "default": "Ocurrió un error. El link puede haber expirado.",
+      "invalidLink": "El link es inválido o ya expiró."
     }
   },
   "register": {

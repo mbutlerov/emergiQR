@@ -123,6 +123,62 @@
     "signup": {
       "prompt": "Don't have an account?",
       "link": "Register for free"
+    },
+    "forgotPassword": "Forgot your password?"
+  },
+  "forgotPassword": {
+    "heading": "Reset password",
+    "subheading": "We'll send you a link to create a new one",
+    "label": {
+      "email": "Email"
+    },
+    "placeholder": {
+      "email": "you@email.com"
+    },
+    "validation": {
+      "invalidEmail": "Invalid email"
+    },
+    "button": {
+      "submit": "Send reset link",
+      "submitting": "Sending..."
+    },
+    "success": {
+      "title": "Check your email!",
+      "message": "If that email is registered, you'll receive a link to reset your password. It may take a few minutes.",
+      "button": "Back to login"
+    },
+    "error": {
+      "default": "An error occurred. Please try again."
+    },
+    "backToLogin": "← Back to login"
+  },
+  "resetPassword": {
+    "heading": "New password",
+    "subheading": "Choose a secure password for your account",
+    "label": {
+      "password": "New password",
+      "confirmPassword": "Confirm password"
+    },
+    "placeholder": {
+      "password": "Minimum 8 characters",
+      "confirmPassword": "Repeat your password"
+    },
+    "validation": {
+      "passwordMin": "Minimum 8 characters",
+      "passwordMismatch": "Passwords do not match"
+    },
+    "button": {
+      "submit": "Save new password",
+      "submitting": "Saving..."
+    },
+    "success": {
+      "title": "Password updated!",
+      "message": "Your password has been changed. Redirecting you to home...",
+      "button": "Go to dashboard"
+    },
+    "error": {
+      "default": "An error occurred. The link may have expired.",
+      "invalidLink": "The link is invalid or has expired."
     }
   },
   "register": {
