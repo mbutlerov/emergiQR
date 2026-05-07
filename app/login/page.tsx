@@ -93,7 +93,12 @@ function LoginForm() {
           </div>
 
           <div>
-            <label className="label">{t('login.label.password')}</label>
+            <div className="flex items-center justify-between mb-1">
+              <label className="label !mb-0">{t('login.label.password')}</label>
+              <Link href="/forgot-password" className="text-xs text-text-muted hover:text-accent-red transition-colors font-body">
+                {t('login.forgotPassword')}
+              </Link>
+            </div>
             <div className="relative">
               <input
                 {...register('password')}

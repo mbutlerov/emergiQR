@@ -123,6 +123,62 @@
     "signup": {
       "prompt": "Não tem uma conta?",
       "link": "Cadastre-se gratuitamente"
+    },
+    "forgotPassword": "Esqueceu sua senha?"
+  },
+  "forgotPassword": {
+    "heading": "Recuperar senha",
+    "subheading": "Enviaremos um link para você criar uma nova senha",
+    "label": {
+      "email": "E-mail"
+    },
+    "placeholder": {
+      "email": "voce@email.com"
+    },
+    "validation": {
+      "invalidEmail": "E-mail inválido"
+    },
+    "button": {
+      "submit": "Enviar link de recuperação",
+      "submitting": "Enviando..."
+    },
+    "success": {
+      "title": "Verifique seu e-mail!",
+      "message": "Se esse e-mail estiver cadastrado, você receberá um link para redefinir sua senha. Pode levar alguns minutos.",
+      "button": "Voltar ao login"
+    },
+    "error": {
+      "default": "Ocorreu um erro. Tente novamente."
+    },
+    "backToLogin": "← Voltar ao login"
+  },
+  "resetPassword": {
+    "heading": "Nova senha",
+    "subheading": "Escolha uma senha segura para sua conta",
+    "label": {
+      "password": "Nova senha",
+      "confirmPassword": "Confirmar senha"
+    },
+    "placeholder": {
+      "password": "Mínimo 8 caracteres",
+      "confirmPassword": "Repita sua senha"
+    },
+    "validation": {
+      "passwordMin": "Mínimo 8 caracteres",
+      "passwordMismatch": "As senhas não coincidem"
+    },
+    "button": {
+      "submit": "Salvar nova senha",
+      "submitting": "Salvando..."
+    },
+    "success": {
+      "title": "Senha atualizada!",
+      "message": "Sua senha foi alterada. Redirecionando para o início...",
+      "button": "Ir ao dashboard"
+    },
+    "error": {
+      "default": "Ocorreu um erro. O link pode ter expirado.",
+      "invalidLink": "O link é inválido ou já expirou."
     }
   },
   "register": {
